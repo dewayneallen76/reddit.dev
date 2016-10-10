@@ -29,11 +29,16 @@ Route::get('/uppercase/{string}', function($string) {
 });
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
 Route::get('/increment/{number}', function($number) {
-	return $number + 1;
+	$data['number'] = $number;
+	$data['increment'] = $number + 1;
+	return view('increment')->with($data);
 });
 // Create a route at the path /add that takes two parametes that are numbers and returns the sum of the numbers.
 Route::get('/add/{a}/{b}', function($a,$b) {
-	return $a + $b;
+	$data['a'] = $a;
+	$data['b'] = $b;
+	$data['total']= $a + $b;
+	return view('add')->with($data);
 });
 // 10.2.2 Views Exercises
 // Create a route that responds to a GET request on the path /rolldice.
