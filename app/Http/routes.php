@@ -23,7 +23,9 @@ Route::get('/sayhello/{name?}', function($name = 'Dewayne') {
 });
 // Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
 Route::get('/uppercase/{string}', function($string) {
-	return (strtoupper($string));
+	$data['string'] = $string;
+	$data['upperCase'] = (strtoupper($string));
+	return view('uppercase')->with($data);
 });
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
 Route::get('/increment/{number}', function($number) {
