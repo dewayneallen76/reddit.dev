@@ -33,12 +33,19 @@ Route::get('/increment/{number}', function($number) {
 Route::get('/add/{a}/{b}', function($a,$b) {
 	return $a + $b;
 });
-
+// 10.2.2 Views Exercises
 // Create a route that responds to a GET request on the path /rolldice.
 // Within the route, return a random number between 1 and 6.
 // Add a view named roll-dice.php. Instead of just returning the random number, show the view and have it display the random number.
-Route::get('/rolldice', function() {
-	$dice = rand(1,6);
-	$data['dice'] = $dice;
+// Modify the route to take in a parameter named guess. Someone will access the route by visiting http://reddit.dev/rolldice/1, where 1 is their guess.
+Route::get('/rolldice/{guess}', function($guess) {
+	$data['guess'] = $guess;
+	$data['dice'] = rand(1,6);
+
+	if($guess == $data['dice']) {
+		$data['result'] = 'Good Job!';
+	} else {
+		$data['result'] = 'Wrong, Try Again!';
+	}
 	return view('roll-dice')->with($data);
 });

@@ -4,6 +4,8 @@
 	<title>Roll Dice</title>
 </head>
 <body>	
-	<h1><?= $dice;?></h1>
+	<h1>Guess:<?= $guess ;?></h1>
+	<h1>Roll:<?= $dice ;?></h1>
+	<h2>Result:<?= $result ;?></h2> 
 </body>
 </html>
