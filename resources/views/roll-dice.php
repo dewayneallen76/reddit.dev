@@ -6,9 +6,9 @@
 </head>
 <body>
 	<div class="container-fluid">	
-	<h1>Guess:<?= $guess ;?></h1>
-	<h1>Roll:<?= $dice ;?></h1>
-	<h2>Result:<?= $result ;?></h2> 
+	<h1>Guess: <?= $guess ;?></h1>
+	<h1>Roll: <?= $dice ;?></h1>
+	<h2>Result: <?= $result ;?></h2> 
 		<h3>Make another guess</h3>
 		<ul>
 			<li><a href="/rolldice/1">Guess 1</a></li>

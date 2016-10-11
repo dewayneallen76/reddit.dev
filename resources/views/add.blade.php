@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.bootstrap')
 
 @section('top-script')
 	<title>Add</title>
