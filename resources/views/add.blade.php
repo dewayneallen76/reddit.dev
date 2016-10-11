@@ -1,8 +1,6 @@
 @extends('layouts.bootstrap')
 
-@section('top-script')
-	<title>Add</title>
-@stop
+@section('title', 'Add')
 
 @section('content')
 	<h1>Add</h1>
