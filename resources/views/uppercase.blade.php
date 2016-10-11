@@ -1,8 +1,6 @@
 @extends('layouts.bootstrap')
 
-@section('top-script')
-	<title>Uppercase Exercise</title>
-@stop
+@section('title', 'Uppercase Exercise')
 
 @section('content')
 	<h1>Uppercase Exercise</h1>
