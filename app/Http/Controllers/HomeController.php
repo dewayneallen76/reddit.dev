@@ -30,4 +30,18 @@ class HomeController extends Controller
 		$data['total']= $a + $b;
 		return view('add')->with($data);
     }
+
+    public function rollDice($guess) 
+    {
+    	$numberOfRolls = 6;
+    	$rolls = [];
+    	for ($i = 0; $i < $numberOfRolls; $i++) {
+        	$rolls[] = mt_rand(1,6);
+    	}
+
+    	return view('dice')->with([
+        	'rolls' => $rolls,
+        	'guess' => $guess,
+    	]);
+    }
 }
