@@ -17,13 +17,13 @@
 // 	$data['name'] = $name;
 //     return view('my-first-view')->with($data);
 // });
+Route::get('/sayhello/{name?}', function($name = 'Dewayne') {
+	return view('my-first-view');
+});
 
 // Refactored to use controller 10.2.4 cirriculum. 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/sayhello/{name?}', function($name = 'Dewayne') {
-	return view('my-first-view');
-});
 // Refactored to use controller. 10.2.4 in cirriculum.
 Route::get('/uppercase/{string}', 'HomeController@showUppercase');
 
