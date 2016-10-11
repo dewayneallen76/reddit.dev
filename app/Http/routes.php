@@ -10,13 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/', function () {
-	$name = 'Dewayne';
-	// cameron's preferred way of passing data to the view 
-	$data['name'] = $name;
-    return view('my-first-view')->with($data);
-});
+// Route::get('/', function () {
+// 	$name = 'Dewayne';
+// 	// cameron's preferred way of passing data to the view 
+// 	$data['name'] = $name;
+//     return view('my-first-view')->with($data);
+// });
 
 Route::get('/sayhello/{name?}', function($name = 'Dewayne') {
 	return view('my-first-view');
@@ -45,7 +46,7 @@ Route::get('/add/{a}/{b}', function($a,$b) {
 // Within the route, return a random number between 1 and 6.
 // Add a view named roll-dice.php. Instead of just returning the random number, show the view and have it display the random number.
 // Modify the route to take in a parameter named guess. Someone will access the route by visiting http://reddit.dev/rolldice/1, where 1 is their guess.
-Route::get('/rolldice/{guess}', function($guess) {
+Route::get('/rolldice/{guess?}', function($guess = 1) {
 	$data['guess'] = $guess;
 	$data['dice'] = rand(1,6);
 
