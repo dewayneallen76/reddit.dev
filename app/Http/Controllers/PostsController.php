@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return 'This will be the form for creating a new post';
+        return view('posts/create');
     }
 
     /**
@@ -37,10 +37,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset($request)) {
-            $inputs = $request->all();
-            var_dump($inputs);
+        
+        $inputs = $request->all(); 
+
+        if($request->has('name')) {
+            echo 'Has name';
+        } else {
+            echo 'Please enter name';
         }
+
+        return back()->withInput();
+        return view('create', $inputs);
     }
 
     /**
@@ -62,7 +69,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return 'Will show a form for editing a specific post';
+        return view('posts/edit');
     }
 
     /**
@@ -74,7 +81,8 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'Updates a specific post';
+        $inputs = $request->all();
+        return view('posts/edit', $inputs);
     }
 
     /**
