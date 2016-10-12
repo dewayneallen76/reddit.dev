@@ -7,8 +7,8 @@
 		{!! csrf_field() !!}
 		{!! method_field('PUT') !!}
 		Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
-		Content: <input class="form-control" type="text" name="content" value="{{ old('content') }}">
 		URL: <input class="form-control" type="text" name="website" value="{{ old('website') }}">
-		<input class="btn-success btn" type="Submit">
+		Content: <textarea class="form-control" type="text" name="content">{{ old('content') }}</textarea>
+		<button class="btn-success btn" type="Submit">Edit</button>
 	</form>
 @stop 
