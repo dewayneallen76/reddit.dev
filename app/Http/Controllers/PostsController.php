@@ -74,7 +74,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'Updates a specific post';
     }
 
     /**
@@ -85,6 +85,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'Deletes a specific post';
     }
 }
