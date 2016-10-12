@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-       return 'Return all posts here';
+       $data['posts'] = Post::all();
+       return view('posts.index')->with($data);
+
     }
 
     /**
@@ -37,7 +40,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        return back()->withInput();
+        $post = new Post();
+        $post->created_by = 1;
+        $post->title = $request->title;
+        $post->url = $request->url;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect()->action('PostsController@show', $post->id);
     }
 
     /**
@@ -48,7 +58,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return 'Shows a specific post';
+        $data['post'] = Post::find($id);
+        return view('posts.show')->with($data);
     }
 
     /**
@@ -59,7 +70,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('posts.edit');
+        $data['post'] = Post::find($id);
+        return view('posts.edit')->with($data);
     }
 
     /**
@@ -71,7 +83,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return back()->withInput(); 
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->url = $request->url;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect()->action('PostsController@show', $post->id);
+
     }
 
     /**
