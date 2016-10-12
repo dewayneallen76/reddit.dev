@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts/create');
+        return view('posts.create');
     }
 
     /**
@@ -37,17 +37,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $inputs = $request->all(); 
-
-        if($request->has('name')) {
-            echo 'Has name';
-        } else {
-            echo 'Please enter name';
-        }
-
         return back()->withInput();
-        return view('create', $inputs);
     }
 
     /**
@@ -69,7 +59,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('posts/edit');
+        return view('posts.edit');
     }
 
     /**
@@ -81,8 +71,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $inputs = $request->all();
-        return view('posts/edit', $inputs);
+        return back()->withInput(); 
     }
 
     /**
