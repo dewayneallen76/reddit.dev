@@ -6,11 +6,11 @@
     <title>@yield('title')</title>
 </head>
 <body>
-	{{-- @include('partials.navbar') --}}
+	@include('layouts.partials.navbar')
     <div class="container">
         @yield('content')
     </div>
-    {{-- @include('partials.footer') --}}
+    @include('layouts.partials.footer')
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>
