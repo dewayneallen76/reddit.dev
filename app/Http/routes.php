@@ -35,3 +35,8 @@ Route::get('/add/{a}/{b}', 'HomeController@addNumbers');
 
 // Refactored to use controller. 10.2.4 in cirriculum.
 Route::get('/dice/{guess}', 'HomeController@rollDice');
+
+// ROUTES TO PostController
+// Route to PostController for posts.
+Route::resource('posts', 'PostsController');
+
