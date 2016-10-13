@@ -41,7 +41,7 @@ Route::get('/dice/{guess}', 'HomeController@rollDice');
 Route::resource('posts', 'PostsController');
 
 // Route to UsersController for users.
-Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
 
 // Route to orm-test for testing.
 Route::get('orm-test', function ()
