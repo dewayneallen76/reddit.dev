@@ -13,6 +13,11 @@
 				<p>{{ session('SUCCESS_MESSAGE') }}</p>
 			</div>
     	@endif
+    	@if(session()->has('ERROR_MESSAGE'))
+    		<div class="alert alert-danger">
+    			<p>{{ session('ERROR_MESSAGE') }}</p>
+    		</div>
+    	@endif
         @yield('content')
     </div>
     @include('layouts.partials.footer')
