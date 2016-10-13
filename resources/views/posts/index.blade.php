@@ -10,6 +10,7 @@
         <th>Title</th>
         <th>URL</th>
         <th>Content</th>
+        <th>Created</th>
       </tr>
       @foreach($posts as $post)
       <tr>
@@ -17,6 +18,7 @@
         <td>{{ $post->title }}</td>
         <td><a href="/posts/{{ $post->id }}" target="_blank">{{ $post->url }}</a></td>
         <td>{{ $post->content }}</td>
+        <td>{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}
       </tr> 
       @endforeach
     </table>
