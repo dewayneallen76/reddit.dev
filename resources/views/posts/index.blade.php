@@ -15,7 +15,7 @@
   		<tr>
   			<td>{{ $post->id }}</td>
   			<td>{{ $post->title }}</td>
-  			<td>{{ $post->url }}</td>
+  			<td><a href="{{ $post->url }}" target="_blank">{{ $post->url }}</a></td>
   			<td>{{ $post->content }}</td>
   		</tr>	
   		@endforeach
