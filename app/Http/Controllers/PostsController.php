@@ -51,7 +51,9 @@ class PostsController extends Controller
         ];
 
         // will redirect back with $errors object populated if validation fails
+        $request->session()->flash('ERROR_MESSAGE', 'Post not created. See error messages below input');
         $this->validate($request, $rules);
+        $request->session()->forget('ERROR_MESSAGE');
 
         $post = new Post();
         $post->created_by = 1;
@@ -59,6 +61,8 @@ class PostsController extends Controller
         $post->url = $request->url;
         $post->content = $request->content;
         $post->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post created successfully');
 
         return redirect()->action('PostsController@show', $post->id);
     }
