@@ -101,6 +101,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        return 'Deletes a specific post';
+        $post = Post::find($id);
+        $post->delete($id);
+
+        return view('posts.index');
+
     }
 }
