@@ -8,6 +8,7 @@
 		Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
 		URL: <input class="form-control" type="text" name="url" value="{{ old('url') }}">
 		Content: <textarea class="form-control" type="text" name="content">{{ old('content') }}</textarea>
+		<br>
 		<button class="btn-success btn" type="submit">Submit</button>
 	</form>
 @stop 
