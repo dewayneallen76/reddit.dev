@@ -17,8 +17,8 @@
                 </p>
                 <hr>
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at }}</p>
-                <p><span class="glyphicon glyphicon-time"></span> Last Update on {{ $post->updated_at }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Last Update on {{ $post->updated_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}</p>
                 <hr>
                 <!-- Preview Image -->
                 <a href="{{ $post->url }}">{{ $post->url }}</a>
