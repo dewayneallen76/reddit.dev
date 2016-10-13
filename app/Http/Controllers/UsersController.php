@@ -17,7 +17,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $data['posts'] = Post::paginate(4);
+        return view('users.index')->with($data);
     }
 
     /**
@@ -27,7 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -38,7 +39,22 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|min:5',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ];
+
+        $this->validate($request, $rules);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return redirect()->action('UsersController@show', $user->id);
+
     }
 
     /**
@@ -49,7 +65,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('users.show')->with($data);
     }
 
     /**
@@ -60,7 +77,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('users.edit')->with($data);
     }
 
     /**
@@ -72,7 +90,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return redirect()->action('UsersController@show', $user->id);
     }
 
     /**
@@ -83,6 +107,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete($id);
+
+        return redirect()->action('UsersController@index');
     }
 }
