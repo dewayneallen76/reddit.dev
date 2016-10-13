@@ -26,8 +26,8 @@
                 <!-- Post Content -->
                 <p class="lead">{{ $post->content }}</p>
                 <hr>
-                <button class="btn btn-default btn-primary" type="submit">Edit Post</button>
-                <button class="btn btn-default btn-danger" type="submit">Delete Post</button>
+                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary btn-lg active" method="POST" role="button">Edit Post</a>
+                <a href="/posts/{{ $post->id }}/delete" class="btn btn-danger btn-lg active" method="POST" role="button">Delete Post</a>
             </div> 
         </div>
     </div> 
