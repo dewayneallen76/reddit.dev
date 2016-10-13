@@ -17,7 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-       $data['posts'] = Post::all();
+       $data['posts'] = Post::paginate(4);
        return view('posts.index')->with($data);
 
     }
@@ -40,6 +40,19 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        // associative array whose keys are input names in the request
+        // values are the validation rules
+        $rules = [
+            'title'   => 'required|min:5',
+            'url'     => 'required|url', 
+            'content' => 'required',
+        ];
+
+        // will redirect back with $errors object populated if validation fails
+        $this->validate($request, $rules);
+
         $post = new Post();
         $post->created_by = 1;
         $post->title = $request->title;
@@ -104,7 +117,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->delete($id);
 
-        return view('posts.index');
+        return redirect()->action('PostsController@index');
 
     }
 }
