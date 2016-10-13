@@ -3,7 +3,7 @@
 @section('title', 'Index Posts')
 
 @section('content')
-    <div class="container-fluid">
+  <div class="container-fluid">
     <table class="table table-bordered">
       <tr>  
         <th>ID</th>
@@ -19,7 +19,8 @@
         <td>{{ $post->content }}</td>
       </tr> 
       @endforeach
-  </table>
+    </table>
+    {!! $posts->render() !!}
   </div>
 @stop
 
