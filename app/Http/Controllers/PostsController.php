@@ -106,6 +106,8 @@ class PostsController extends Controller
         $post->content = $request->content;
         $post->save();
 
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully');
+
         return redirect()->action('PostsController@show', $post->id);
 
     }
@@ -120,6 +122,8 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         $post->delete($id);
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully');
 
         return redirect()->action('PostsController@index');
 
