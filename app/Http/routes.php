@@ -36,24 +36,16 @@ Route::get('/add/{a}/{b}', 'HomeController@addNumbers');
 // Refactored to use controller. 10.2.4 in cirriculum.
 Route::get('/dice/{guess}', 'HomeController@rollDice');
 
-// ROUTES TO PostController
-// Route to PostController for posts.
+// ROUTES TO CONTROLLERS
+// Route to PostsController for posts.
 Route::resource('posts', 'PostsController');
 
+// Route to UsersController for users.
+Route::resource('posts', 'PostsController');
+
+// Route to orm-test for testing.
 Route::get('orm-test', function ()
 {
-    $post1 = new \App\Models\Post();
-	$post1->title = 'Eloquent is awesome!';
-	$post1->url='https://laravel.com/docs/5.1/eloquent';
-	$post1->content  = 'It is super easy to create a new post.';
-	$post1->created_by = 1;
-	$post1->save();
 
-	$post2 = new \App\Models\Post();
-	$post2->title = 'Eloquent is really easy!';
-	$post2->url='https://laravel.com/docs/5.1/eloquent';
-	$post2->content = 'It is super easy to create a new post.';
-	$post2->created_by = 1;
-	$post2->save();
 });
 
