@@ -1,6 +1,6 @@
 @extends('layouts.bootstrap')
 
-@section('title', 'Create Post')
+@section('title', 'Edit Post')
 
 @section('content')
 	<form class="form" method="POST" action="{{ action('PostsController@update', $post->id) }}">
