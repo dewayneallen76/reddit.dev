@@ -8,6 +8,11 @@
 <body>
 	@include('layouts.partials.navbar')
     <div class="container">
+    	@if(session()->has('SUCCESS_MESSAGE'))
+			<div class="alert alert-success">
+				<p>{{ session('SUCCESS_MESSAGE') }}</p>
+			</div>
+    	@endif
         @yield('content')
     </div>
     @include('layouts.partials.footer')
