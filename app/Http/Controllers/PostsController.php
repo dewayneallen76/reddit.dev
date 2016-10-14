@@ -76,8 +76,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $data['post'] = Post::find($id);
-        return view('posts.show')->with($data);
+        if($data['post'] = Post::find($id)) {
+            return view('posts.show')->with($data);  
+        }
+        abort(404);
     }
 
     /**
@@ -88,8 +90,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $data['post'] = Post::find($id);
-        return view('posts.edit')->with($data);
+        if($data['post'] = Post::find($id)) {
+            return view('posts.edit')->with($data);    
+        }
+            abort(404);
     }
 
     /**
@@ -107,10 +111,10 @@ class PostsController extends Controller
         $post->content = $request->content;
         $post->save();
 
-        $request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully');
-
-        return redirect()->action('PostsController@show', $post->id);
-
+        if($request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully') {
+            return redirect()->action('PostsController@show', $post->id);
+        }
+            abort(404);
     }
 
     /**
@@ -124,9 +128,9 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->delete($id);
 
-        $request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully');
-
-        return redirect()->action('PostsController@index');
-
+        if($request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully') {
+            return redirect()->action('PostsController@index');  
+        }
+            abort(404);
     }
 }
