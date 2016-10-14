@@ -8,6 +8,8 @@ use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Log;
+
 class PostsController extends Controller
 {
     /**
@@ -19,7 +21,6 @@ class PostsController extends Controller
     {
        $data['posts'] = Post::paginate(4);
        return view('posts.index')->with($data);
-
     }
 
     /**
