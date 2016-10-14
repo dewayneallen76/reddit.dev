@@ -76,10 +76,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        if($data['post'] = Post::find($id)) {
-            return view('posts.show')->with($data);  
-        }
-        abort(404);
+        $data['post'] = Post::findOrFail($id);
+        return view('posts.show')->with($data);  
     }
 
     /**
@@ -90,10 +88,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        if($data['post'] = Post::find($id)) {
-            return view('posts.edit')->with($data);    
-        }
-            abort(404);
+        $data['post'] = Post::findOrFail($id);
+        return view('posts.edit')->with($data);   
     }
 
     /**
@@ -105,16 +101,15 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
         $post->save();
 
-        if($request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully') {
-            return redirect()->action('PostsController@show', $post->id);
-        }
-            abort(404);
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully');
+        return redirect()->action('PostsController@show', $post->id);
+           
     }
 
     /**
@@ -125,12 +120,10 @@ class PostsController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $post->delete($id);
 
-        if($request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully') {
-            return redirect()->action('PostsController@index');  
-        }
-            abort(404);
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully');
+        return redirect()->action('PostsController@index');  
     }
 }
