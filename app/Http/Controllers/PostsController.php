@@ -64,7 +64,7 @@ class PostsController extends Controller
         $post->save();
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post created successfully');
-        Log::info($post);
+        Log::info('New Post Created' . $post);
         return redirect()->action('PostsController@show', $post->id);
     }
 
