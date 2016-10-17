@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\BaseModel;
 use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +63,7 @@ class PostsController extends Controller
         $request->session()->forget('ERROR_MESSAGE');
 
         $post = new Post();
-        $post->created_by = 1;
+        $post->created_by = $request->user()->id;
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;

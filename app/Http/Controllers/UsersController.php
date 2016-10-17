@@ -17,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data['posts'] = Post::paginate(4);
+        $data['users'] = User::paginate(4);
         return view('users.index')->with($data);
     }
 
@@ -28,7 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+     
     }
 
     /**
@@ -39,21 +39,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'name' => 'required|min:5',
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ];
-
-        $this->validate($request, $rules);
-
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-
-        return redirect()->action('UsersController@show', $user->id);
+        
 
     }
 
