@@ -24,11 +24,10 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $data['posts'] = Post::paginate(10); 
-       $posts = Post::all();
-       $posts = Post::with('user')->get();
+       $data['posts'] = (isset($request->search)) ?  Post::searchPosts($request->search)->paginate(10) : Post::with('user')->paginate(10); 
+
        return view('posts.index')->with($data);
     }
 
