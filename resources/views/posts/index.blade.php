@@ -31,7 +31,7 @@
         <hr>
       @endforeach
     </div>
-    {!! $posts->render() !!}
+    <div class="text-center">{!! $posts->render() !!}</div>
   </div>
 @stop
 
