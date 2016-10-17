@@ -5,10 +5,9 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div></div>
-		<form action="index_submit" method="get" action="{{ action('UsersController@index') }}">
+		<form method="GET" action="{{ action('UsersController@index') }}">
         	<div class="form-group">
-            	<input input id= "search" type="search" class="form-control" placeholder="Search">
+            	<input input id= "search" type="search" class="form-control" placeholder="Search Users" name="search">
         	</div>
         	<button type="submit" class="btn btn-primary btn-default"><i class="fa fa-search"></i>Search Users</button>
     	</form>

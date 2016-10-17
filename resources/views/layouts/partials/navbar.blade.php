@@ -14,7 +14,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{{ action('PostsController@index') }}">Posts</a></li>
                 @if (Auth::check())
                     <li><a href="{{ action('UsersController@show', Auth::id()) }}">{{ Auth::user()->name }}</a></li>
                     <li><a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a></li>
@@ -23,6 +22,8 @@
                     <li><a href="{{ action('Auth\AuthController@getLogin') }}">Login</a></li>
                     <li><a href="{{ action('Auth\AuthController@getRegister') }}">Register</a></li>
                 @endif
+                    <li><a href="{{ action('PostsController@index') }}">Posts</a></li>
+                    <li><a href="{{ action('UsersController@index') }}">Users</a></li>
             </ul>
             <form class="navbar-form navbar-right" method="GET" action="{{ action('PostsController@index') }}">
                 <div class="form-group">
