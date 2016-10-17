@@ -20,7 +20,7 @@
             			</tr>
             		</thead>
             		<tbody>
-            			@foreach($posts->$users as $post)
+            			{{-- @foreach($posts as $post)
             			<tr>
             				<td>{{ $post->created_by }}</td>
             				<td>{{ $post->title }}</td>
@@ -28,7 +28,7 @@
             				<td>{{ $post->content }}</td>
             				<td>{{ $post->user->name }}</td>
             			</tr>
-						@endforeach
+						@endforeach --}}
             		</tbody>
             	</table>
     		</div>
