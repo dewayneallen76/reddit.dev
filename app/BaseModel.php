@@ -9,13 +9,18 @@ class BaseModel extends Model
 {
 	public function getCreatedAtAttributes($value) 
 	{
-		$utc = createFromFormat($this->getDateFormat(), $value);
+		$utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago');
 	}
 
 	public function getUpdatedAtAttributes($value) 
 	{
-		$utc = createFromFormat($this->getDateFormat(), $value);
+		$utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago');
+	}
+
+	public function setPasswordAttribute($value)
+	{
+    	$this->attributes['password'] = Hash::make($value);
 	}
 }
