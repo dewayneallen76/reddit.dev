@@ -4,8 +4,8 @@
 	<div class="container">
         <div class="row">
      		<div class = "col-sm-12">
-			<h1>{{ $user->name }}</h1>
-			<h1>{{ $user->email }}</h1>
+			<h1>{{ $users->name }}</h1>
+			<h1>{{ $users->email }}</h1>
      	</div>
             <div class="col-lg-8">
             	<table class="table table-hover">
@@ -20,13 +20,13 @@
             			</tr>
             		</thead>
             		<tbody>
-            			{{-- @foreach($posts as $post)
+            			{{-- @foreach($users->posts as $user->$post)
             			<tr>
-            				<td>{{ $post->created_by }}</td>
-            				<td>{{ $post->title }}</td>
-            				<td><a href="{{ $post->url }}">{{ $post->url }}</a></td>
-            				<td>{{ $post->content }}</td>
-            				<td>{{ $post->user->name }}</td>
+            				<td>{{ $user->post->id }}</td>
+            				<td>{{ $user->post->title }}</td>
+            				<td><a href="{{ $user->post->url }}">{{ $user->post->url }}</a></td>
+            				<td>{{ $user->post->content }}</td>
+            				<td>{{ $user->post->name }}</td>
             			</tr>
 						@endforeach --}}
             		</tbody>
