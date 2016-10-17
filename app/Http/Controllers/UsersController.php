@@ -17,9 +17,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['users'] = (isset($request->search)) ?  User::searchUsers($request->search)->paginate(10) : User::with('posts')->paginate(10);
+        $data['users'] = ($request->has('search')) ?  User::searchUsers($request->search)->paginate(10) : User::with('posts')->paginate(10);
         
         return view('users.index')->with($data);
     }
