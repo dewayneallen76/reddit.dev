@@ -13,12 +13,12 @@
                 <h1>{{ $post->title }}</h1>
                 <!-- Author -->
                 <p class="lead">
-                    by <a href="#">User ID: {{ $post->created_by }}</a>
+                    by <a href="#">Created by: {{ $post->user->name }}</a>
                 </p>
                 <hr>
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->format('l, F jS Y @ h:i:s A') }}</p>
-                <p><span class="glyphicon glyphicon-time"></span> Last Update on {{ $post->updated_at->format('l, F jS Y @ h:i:s A') }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Last Update on {{ $post->updated_at }}</p>
                 <hr>
                 <!-- Preview Image -->
                 <a href="{{ $post->url }}">{{ $post->url }}</a>

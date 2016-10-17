@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Models\Post;
 use App\Models\BaseModel;
 use App\Http\Requests;
@@ -25,7 +26,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-       $data['posts'] = Post::paginate(4);
+       $data['posts'] = Post::paginate(10); 
+       $posts = Post::all();
+       $posts = Post::with('user')->get();
        return view('posts.index')->with($data);
     }
 

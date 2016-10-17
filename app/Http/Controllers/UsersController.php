@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\User;
+use App\Models\BaseModel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +19,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::paginate(4);
+        $data['users'] = User::paginate(10);
         return view('users.index')->with($data);
     }
 
