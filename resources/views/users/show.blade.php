@@ -23,7 +23,7 @@
             			@foreach($users->posts as $post)
             			<tr>
             				<td>{{ $post->id }}</td>
-            				<td>{{ $post->title }}</td>
+            				<td><a href="{{ action('PostsController@show', $post->id) }}"</a>{{ $post->title }}</td>
             				<td><a href="{{ $post->url }}">{{ $post->url }}</a></td>
             				<td>{{ $post->content }}</td>
             				<td>{{ $post->name }}</td>
