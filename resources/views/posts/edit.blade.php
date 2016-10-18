@@ -10,6 +10,6 @@
 		URL: <input class="form-control" type="text" name="url" value="{{ (old('url') ==null) ? $post->url : old('url') }}">
 		Content: <textarea class="form-control" type="text" name="content">{{ (old('content') ==null) ? $post->content : old('content') }}</textarea>
 		<br>
-		<button class="btn-success btn" type="Submit">Edit Post <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+		<button class="btn-primary btn" type="Submit">Edit Post <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 	</form>
 @stop 

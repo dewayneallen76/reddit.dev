@@ -3,6 +3,7 @@
 @section('content')
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
+			<h1>Sign Up:</h1>
 			<form method="POST" action="{{ action('Auth\AuthController@postRegister') }}">
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -21,7 +22,7 @@
 			    	<label for="password_confirmation">Password Confirmation:</label>
 			    	<input type="password" class="form-control" name="password_confirmation">
 			  	</div>
-			  	<button type="submit" class="btn btn-success">Register</button>
+			  	<button type="submit" class="btn btn-primary">Register</button>
 			</form>
 		</div>
 	</div>

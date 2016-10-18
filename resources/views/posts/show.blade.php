@@ -13,7 +13,7 @@
                 <h1>{{ $post->title }}</h1>
                 <!-- Author -->
                 <p class="lead">
-                    by <a href="#">{{ $post->user->name }}</a>
+                    by <a href="{{ action('UsersController@show', $post->user->id )}}">{{ $post->user->name }}</a>
                 </p>
                 <hr>
                 <!-- Date/Time -->
