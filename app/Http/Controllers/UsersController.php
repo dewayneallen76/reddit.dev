@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use Hash;
 use App\User;
 use App\Models\BaseModel;
 use App\Http\Requests;
@@ -79,12 +79,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $rules = [
+        'name' => 'required|min:5',
+        'email' => 'required',
+        'password' => 'required',
+        'confirm_password' => 'required|same:password',
+        ];
+        // validates input for user edit form
+        $this->validate($request, $rules);
+
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
 
+        $request->session()->flash('SUCCESS_MESSAGE', 'User updated successfully');
         return redirect()->action('UsersController@show', $user->id);
     }
 
