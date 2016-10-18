@@ -17,8 +17,8 @@
                 </p>
                 <hr>
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->diffForHumans() }}</p>
-                <p><span class="glyphicon glyphicon-time"></span> Last Update on {{ $post->updated_at->diffForHumans() }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted {{ $post->created_at->diffForHumans() }}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Last Update {{ $post->updated_at->diffForHumans() }}</p>
                 <hr>
                 <!-- Preview Image -->
                 <a href="{{ $post->url }}">{{ $post->url }}</a>
