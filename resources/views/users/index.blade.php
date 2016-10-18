@@ -32,7 +32,7 @@
             			@endforeach
             		</tbody>
             	</table>
-            	{!! $users->render() !!}
+            	<div class="text-center">{!! $users->render() !!}</div>
     		</div>
     </div>
 </div>
