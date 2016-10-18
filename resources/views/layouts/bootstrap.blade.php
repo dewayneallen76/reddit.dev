@@ -3,7 +3,7 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css">
 </head>
 <body>
 	@include('layouts.partials.navbar')
