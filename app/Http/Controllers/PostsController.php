@@ -27,7 +27,7 @@ class PostsController extends Controller
     public function index(Request $request)
     {
        $data['posts'] = (isset($request->search)) ?  Post::searchPosts($request->search)->paginate(10) : Post::with('user')->paginate(10); 
-
+       
        return view('posts.index')->with($data);
     }
 
