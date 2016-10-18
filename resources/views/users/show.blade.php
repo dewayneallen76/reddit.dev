@@ -6,6 +6,12 @@
      		<div class = "col-sm-12">
 			<h3>{{ $users->name }}</h3>
 			<h3>{{ $users->email }}</h3>
+            @if (Auth::id() == $users->id)
+            <form class="form" method="POST" action="{{ action('UsersController@edit', $users->id) }}">
+            <br>
+            <button class="btn-primary btn active" method="POST" role="button" type="Submit">Edit User <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+            </form>
+            @endif
             <h3>Posts:</h3>
      	</div>
             <div class="col-lg-8">
