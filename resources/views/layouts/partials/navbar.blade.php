@@ -27,9 +27,9 @@
             </ul>
             <form class="navbar-form navbar-right" method="GET" action="{{ action('PostsController@index') }}">
                 <div class="form-group">
-                    <input input id= "search" type="search" class="form-control" placeholder="Search" name="search">
+                    <input input id= "search" type="search" class="form-control" placeholder="Search Posts" name="search">
                 </div>
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>Search Posts</button>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
