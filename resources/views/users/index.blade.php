@@ -5,12 +5,12 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<form method="GET" action="{{ action('UsersController@index') }}">
-        	<div class="form-group">
-            	<input input id= "search" type="search" class="form-control" placeholder="Search Users" name="search">
-        	</div>
-        	<button type="submit" class="btn btn-primary btn-default"><i class="fa fa-search"></i>Search Users</button>
-    	</form>
+		<form class="navbar-form navbar-left" role="search" method="GET" action="{{ action('UsersController@index') }}">
+        <div class="form-group">
+          <input input id="search" type="search" name="search" class="form-control" placeholder="Search Users">
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </form>
 	</div>
     <div class="row">
             <div class="col-lg-8">
@@ -26,7 +26,7 @@
             			@foreach($users as $user)
             			<tr>
             				<td>{{ $user->id }}</td>
-            				<td>{{ $user->name }}</td>
+            				<td><a href="{{ action('UsersController@show', $user->id) }}"</a>{{ $user->name }}</td>
             				<td>{{ $user->email }}</td>
             			</tr>
             			@endforeach
