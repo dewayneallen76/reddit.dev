@@ -25,7 +25,7 @@
                 <h4>Posted By: {{ $post->user->name }}</h4>
                 <h4><a href="{{ $post->url }}">{{ $post->url }}</a></h4>
                 <p>{{ $post->content }}}</p>
-                <a class="btn btn-primary" href="/posts/{{ $post->id }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="/posts/{{ $post->id }}">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <hr>
