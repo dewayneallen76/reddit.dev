@@ -38,6 +38,7 @@ Route::get('/dice/{guess}', 'HomeController@rollDice');
 
 // ROUTES TO CONTROLLERS
 // Route to PostsController for posts.
+Route::post('posts/vote', 'PostsController@vote');
 Route::resource('posts', 'PostsController');
 
 // Route to UsersController for users.
@@ -58,3 +59,4 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+// Vote route

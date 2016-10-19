@@ -21,7 +21,8 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>{{ $post->title }}</h3><span><h4>Total Votes:</h4></span>
+                <h3>{{ $post->title }}</h3>
+                {{-- <h4>Total Votes:</h4> --}}
                 <h4>Posted By: {{ $post->user->name }}</h4>
                 <h4><a href="{{ $post->url }}">{{ $post->url }}</a></h4>
                 <p>{{ $post->content }}}</p>

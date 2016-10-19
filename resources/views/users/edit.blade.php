@@ -25,6 +25,7 @@
                 </div>
         		@endif
 				<button class="btn-primary btn" type="Submit">Edit User <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+        		{{-- DELETE USER BUTTON, NON-FUNCTIONAL AT THIS TIME --}}
 				{{-- <form class="form" method="POST" action="{{ action('UsersController@destroy', $users->id) }}">
 				{!! csrf_field() !!}
 				{!! method_field('DELETE') !!}

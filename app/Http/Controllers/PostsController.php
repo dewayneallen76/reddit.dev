@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Models\Vote;
 use App\Models\Post;
 use App\Models\BaseModel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
@@ -133,5 +134,25 @@ class PostsController extends Controller
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully');
         return redirect()->action('PostsController@index');  
+    }
+
+    public function vote(Request $request)
+    {
+        $vote = Vote::firstOrCreate(
+            array(
+                    'user_id' => $request->user()->id,
+                    'post_id' => $request->get('postId'),
+                )
+            );
+
+        if($request->get('voteValue') == 1){
+            $vote->vote = 1;
+        } else if($request->get('voteValue') == 0) {
+            $vote->vote = 0;
+        }
+        
+        $vote->save();
+
+        return redirect()->action('PostsController@index');
     }
 }

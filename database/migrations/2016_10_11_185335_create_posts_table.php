@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('url')->nullable();
             $table->text('content');
             $table->integer('created_by')->unsigned();
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

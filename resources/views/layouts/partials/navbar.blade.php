@@ -25,7 +25,7 @@
                     <li><a href="{{ action('PostsController@index') }}">Posts</a></li>
                     <li><a href="{{ action('UsersController@index') }}">Users</a></li>
             </ul>
-            <form class="navbar-form navbar-right" method="GET" action="{{ action('PostsController@index') }}">
+            <form class="navbar-form navbar-right collapse navbar-collapse" method="GET" action="{{ action('PostsController@index') }}">
                 <div class="form-group">
                     <input input id= "search" type="search" class="form-control" placeholder="Search Posts" name="search">
                 </div>
