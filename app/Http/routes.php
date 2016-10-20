@@ -40,7 +40,7 @@ Route::get('/dice/{guess}', 'HomeController@rollDice');
 // Vote route
 Route::post('posts/vote', 'PostsController@vote');
 // Route to PostsController for posts.
-Route::resource('posts', 'PostsController@index');
+Route::resource('posts', 'PostsController');
 
 Route::get('/', 'PostsController@index');
 
