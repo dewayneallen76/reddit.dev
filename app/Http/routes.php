@@ -40,12 +40,14 @@ Route::get('/dice/{guess}', 'HomeController@rollDice');
 // Vote route
 Route::post('posts/vote', 'PostsController@vote');
 // Route to PostsController for posts.
-Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController@index');
 
-Route::get('/', ['middleware'=>'auth','uses'=>'PostsController@index'], function () 
-{
-   return redirect()->action('PostsController@index');
-});
+Route::get('/', 'PostsController@index');
+
+// Route::get('/', ['middleware'=>'auth','uses'=>'PostsController@index'], function () 
+// {
+//    return redirect('posts')->action('PostsController@index');
+// });
 
 // Route to UsersController for users.
 Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
