@@ -13,14 +13,14 @@
         </p>
         <hr>
     @endforeach
-    {{-- <h2>Make another guess</h2>
+    <h2>Make another guess</h2>
     <ul>
     @for($i = 1; $i <= 6; $i ++)
         <li>
-            <a href="{{ action ('HomeController@rollDice') }}">
+            <a href="{{ action ('HomeController@rollDice', [$i]) }}">
                 Guess {{ $i }}
             </a>
         </li>
     @endfor
-    </ul> --}}
+    </ul>
 @stop
