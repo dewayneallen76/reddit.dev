@@ -17,7 +17,7 @@
 // 	$data['name'] = $name;
 //     return view('my-first-view')->with($data);
 // });
-Route::get('/sayhello/{name}', function($name)
+Route::get('/sayhello/{name?}', function($name = "World")
 {
     return "Hello, $name!";
 });
