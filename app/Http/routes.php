@@ -17,8 +17,9 @@
 // 	$data['name'] = $name;
 //     return view('my-first-view')->with($data);
 // });
-Route::get('/sayhello/{name?}', function($name = 'Dewayne') {
-	return view('my-first-view');
+Route::get('/sayhello/{name}', function($name)
+{
+    return "Hello, $name!";
 });
 
 // Refactored to use controller 10.2.4 cirriculum. 
