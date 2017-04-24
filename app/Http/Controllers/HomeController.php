@@ -20,7 +20,11 @@ class HomeController extends Controller
     {
     	$data['number'] = $number;
 		$data['increment'] = $number + 1;
-		return view('increment')->with($data);
+        if(is_numeric($number)) {
+		  return view('increment')->with($data);   
+        } else {
+            return $number . " is not a number and cannot be incremented.";
+        }
     }
 
     public function addNumbers($a,$b) 
