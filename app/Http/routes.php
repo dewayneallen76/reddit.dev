@@ -14,12 +14,13 @@
 // Route::get('/', function () {
 // 	$name = 'Dewayne';
 // 	// cameron's preferred way of passing data to the view 
-// 	$data['name'] = $name;
+	// $data['name'] = $name;
 //     return view('my-first-view')->with($data);
 // });
 Route::get('/sayhello/{name?}', function($name = "World")
 {
-    return "Hello, $name!";
+	$data['name'] = $name;
+    return view('my-first-view')->with($data);
 });
 
 // Refactored to use controller 10.2.4 cirriculum. 
