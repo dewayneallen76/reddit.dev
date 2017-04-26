@@ -13,7 +13,7 @@
 
 // Route::get('/', function () {
 // 	$name = 'Dewayne';
-// 	// cameron's preferred way of passing data to the view 
+// 	// cameron's preferred way of passing data to the view
 	// $data['name'] = $name;
 //     return view('my-first-view')->with($data);
 // });
@@ -23,7 +23,7 @@ Route::get('/sayhello/{name?}', function($name = "World")
     return view('my-first-view')->with($data);
 });
 
-// Refactored to use controller 10.2.4 cirriculum. 
+// Refactored to use controller 10.2.4 cirriculum.
 Route::get('/', 'HomeController@showWelcome');
 
 // Refactored to use controller. 10.2.4 in cirriculum.
@@ -33,7 +33,7 @@ Route::get('/uppercase/{string}', 'HomeController@showUppercase');
 Route::get('/increment/{number}', 'HomeController@increment');
 
 // Refactored to use controller. 10.2.4 in cirriculum.
-Route::get('/add/{a}/{b}', 'HomeController@addNumbers'); 
+Route::get('/add/{a}/{b}', 'HomeController@addNumbers');
 
 // Refactored to use controller. 10.2.4 in cirriculum.
 Route::get('/dice/{guess}', 'HomeController@rollDice');
@@ -46,7 +46,7 @@ Route::resource('posts', 'PostsController');
 
 Route::get('/', 'PostsController@index');
 
-// Route::get('/', ['middleware'=>'auth','uses'=>'PostsController@index'], function () 
+// Route::get('/', ['middleware'=>'auth','uses'=>'PostsController@index'], function ()
 // {
 //    return redirect('posts')->action('PostsController@index');
 // });
@@ -57,7 +57,7 @@ Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
 // Route to orm-test for testing.
 Route::get('orm-test', function ()
 {
-
+		return "Use this route for testing";
 });
 
 // Authentication routes...
@@ -68,4 +68,3 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-
