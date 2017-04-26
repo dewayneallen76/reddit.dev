@@ -36,7 +36,7 @@
                     <input type="hidden" name="voteValue" value="0">
                 <button type="submit" class="btn btn-primary glyphicon glyphicon-chevron-down"></button>
                 </form>
-        </div> 
+        </div>
     </div>
             <hr>
             <!-- Preview Image -->
@@ -51,10 +51,10 @@
                 {!! csrf_field() !!}
                 {!! method_field('DELETE') !!}
                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary btn active" method="POST">Edit Post <span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
-                <button class="btn btn-primary btn active" role="button"></span>Delete Post <span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
+                <!-- <button class="btn btn-primary btn active" role="button"></span>Delete Post <span class="glyphicon glyphicon-trash" aria-hidden="true"></button> -->
             @endif
             </form>
 
     </div>
-</div> 
+</div>
 @stop
