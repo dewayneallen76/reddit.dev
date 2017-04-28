@@ -3,6 +3,8 @@
 @section('title', 'Index Posts')
 
 @section('content')
+  <br>
+  <br>
   <div class="container-fluid">
     <div class="row">
             <div class="col-lg-12">
@@ -35,4 +37,3 @@
     <div class="text-center">{!! $posts->appends(['search' => Request::get('search')])->render() !!}</div>
   </div>
 @stop
-

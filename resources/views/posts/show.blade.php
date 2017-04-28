@@ -4,6 +4,8 @@
 
 @section('content')
     <!-- Page Content -->
+<br>
+<br>
 <div>
     <div class="row">
         <div class="col-sm-4">
@@ -22,21 +24,21 @@
             <p><span class="glyphicon glyphicon-time"></span> Last Update {{ $post->updated_at->diffForHumans() }}</p>
             {{-- <h4>Votes:</h4> --}}
         </div>
-        <div class="col-sm-4">
+        <!-- <div class="col-sm-4">
                 <form method="POST" action="{{ action('PostsController@vote') }}">
                 {!! csrf_field() !!}
                     <input type="hidden" name="postId" value="{{ $post->id }}">
                     <input type="hidden" name="voteValue" value="1">
                     <button type="submit" class="btn btn-primary glyphicon glyphicon-chevron-up"></button>
-                </form>
-                <h4> Vote</h4>
+                </form> -->
+                <!-- <h4> Vote</h4>
                 <form method="POST" action="{{ action('PostsController@vote') }}">
                     {!! csrf_field() !!}
                     <input type="hidden" name="postId" value="{{ $post->id }}">
                     <input type="hidden" name="voteValue" value="0">
                 <button type="submit" class="btn btn-primary glyphicon glyphicon-chevron-down"></button>
-                </form>
-        </div>
+                </form> -->
+        <!-- </div> -->
     </div>
             <hr>
             <!-- Preview Image -->
