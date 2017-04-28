@@ -3,6 +3,8 @@
 @section('title', 'All Users')
 
 @section('content')
+<br>
+<br>
 <div class="container">
 	<div class="row">
 		<form class="navbar-form navbar-left" role="search" method="GET" action="{{ action('UsersController@index') }}">
