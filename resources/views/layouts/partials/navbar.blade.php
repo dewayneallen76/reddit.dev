@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -25,11 +25,11 @@
                     <li><a href="{{ action('PostsController@index') }}">Posts</a></li>
                     <li><a href="{{ action('UsersController@index') }}">Users</a></li>
             </ul>
-            <form class="navbar-form navbar-right collapse navbar-collapse" method="GET" action="{{ action('PostsController@index') }}">
+            <form style="padding-right: 30px"class="navbar-form navbar-right collapse navbar-collapse" method="GET" action="{{ action('PostsController@index') }}">
                 <div class="form-group">
                     <input input id= "search" type="search" class="form-control" placeholder="Search Posts" name="search">
-                </div>
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </div>
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
