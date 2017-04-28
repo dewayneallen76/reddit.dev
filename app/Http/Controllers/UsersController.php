@@ -31,7 +31,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-     
+
     }
 
     /**
@@ -42,7 +42,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
     }
 
@@ -54,7 +54,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $data['users'] = User::find($id);
+        $data['users'] = User::findOrFail($id);
         return view('users.show')->with($data);
     }
 
