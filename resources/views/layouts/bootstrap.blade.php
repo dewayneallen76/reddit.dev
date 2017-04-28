@@ -7,6 +7,8 @@
 </head>
 <body>
 	@include('layouts.partials.navbar')
+    <br>
+    <br>
     <div class="container">
     	@if(session()->has('SUCCESS_MESSAGE'))
 			<div class="alert alert-success">
