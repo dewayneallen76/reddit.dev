@@ -3,6 +3,8 @@
 @section('title', 'Index Posts')
 
 @section('content')
+<br>
+<br>
   <div class="container-fluid">
     <div class="row">
             <div class="col-lg-12">

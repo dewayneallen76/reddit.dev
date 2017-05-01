@@ -3,7 +3,8 @@
 @section('title', 'Create Post')
 
 @section('content')
-
+<br>
+<br>
 	<form class="form" method="POST" action="{{ action('PostsController@store') }}">
 		{!! csrf_field() !!}
 		Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
@@ -27,4 +28,4 @@
 		<br>
 		<button class="btn-success btn" type="submit">Submit New Post</button>
 	</form>
-@stop 
+@stop

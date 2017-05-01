@@ -3,6 +3,8 @@
 @section('title', 'Edit Post')
 
 @section('content')
+<br>
+<br>
 	<form class="form" method="POST" action="{{ action('PostsController@update', $post->id) }}">
 		{!! csrf_field() !!}
 		{!! method_field('PUT') !!}
@@ -12,4 +14,4 @@
 		<br>
 		<button class="btn-primary btn" type="Submit">Edit Post <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 	</form>
-@stop 
+@stop
