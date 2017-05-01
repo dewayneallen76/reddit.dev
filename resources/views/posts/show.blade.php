@@ -8,7 +8,7 @@
 <br>
 <div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-8">
                 <!-- Title -->
                 <h1>{{ $post->title }}</h1>
                 <!-- Author -->
