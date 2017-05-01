@@ -57,7 +57,7 @@ Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
 // Route to orm-test for testing.
 Route::get('orm-test', function ()
 {
-		return "Use this route for testing";
+		dd(DB::table('posts')->orderBy('created_at', 'desc')->get());
 });
 
 // Authentication routes...
