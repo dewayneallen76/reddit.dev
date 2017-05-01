@@ -27,8 +27,8 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
-       $data['posts'] = (isset($request->search)) ?  Post::searchPosts($request->search)->paginate(10) : Post::with('user')->paginate(10); 
-       
+       $data['posts'] = (isset($request->search)) ?  Post::searchPosts($request->search)->paginate(10) : Post::with('user')->paginate(10);
+
        return view('posts.index')->with($data);
     }
 
@@ -56,7 +56,7 @@ class PostsController extends Controller
         // values are the validation rules
         $rules = [
             'title'   => 'required|min:5',
-            'url'     => 'required|url', 
+            'url'     => 'required|url',
             'content' => 'required',
         ];
 
@@ -86,7 +86,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $data['post'] = Post::findOrFail($id);
-        return view('posts.show')->with($data);  
+        return view('posts.show')->with($data);
     }
 
     /**
@@ -98,7 +98,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $data['post'] = Post::findOrFail($id);
-        return view('posts.edit')->with($data);   
+        return view('posts.edit')->with($data);
     }
 
     /**
@@ -118,7 +118,7 @@ class PostsController extends Controller
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post updated successfully');
         return redirect()->action('PostsController@show', $post->id);
-           
+
     }
 
     /**
@@ -133,7 +133,7 @@ class PostsController extends Controller
         $post->delete($id);
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post deleted successfully');
-        return redirect()->action('PostsController@index');  
+        return redirect()->action('PostsController@index');
     }
 
     public function vote(Request $request)
@@ -150,7 +150,7 @@ class PostsController extends Controller
         } else if($request->get('voteValue') == 0) {
             $vote->vote = 0;
         }
-        
+
         $vote->save();
 
         return redirect()->action('PostsController@index');
