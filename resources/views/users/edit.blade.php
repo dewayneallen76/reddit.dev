@@ -1,6 +1,6 @@
 @extends('layouts.bootstrap')
 
-@section('title', 'Edit Post')
+@section('title', 'Edit User')
 
 @section('content')
 <div class="container-fluid">
