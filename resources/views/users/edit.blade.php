@@ -26,12 +26,13 @@
                     {{ $errors->first('confirm_password') }}
                 </div>
         		@endif
+				<form class="form" method="POST" action="{{ action('UsersController@update', $users->id) }}">
 				<button class="btn-primary btn" type="Submit">Edit User <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 
-				 <form class="form" method="POST" action="{{ action('UsersController@destroy', $users->id) }}">
+				<form class="form" method="POST" action="{{ action('UsersController@destroy', $users->id) }}">
+				<button class="btn-primary btn" type="Submit">Delete User <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 				{!! csrf_field() !!}
 				{!! method_field('DELETE') !!}
-				<button class="btn-primary btn" type="Submit">Delete User <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 				<br>
 			</form>
 		</div>
