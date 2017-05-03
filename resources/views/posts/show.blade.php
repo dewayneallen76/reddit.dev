@@ -28,14 +28,14 @@
                 <form method="POST" action="{{ action('PostsController@vote') }}">
                 {!! csrf_field() !!}
                     <input type="hidden" name="postId" value="{{ $post->id }}">
-                    <!-- <input type="hidden" name="voteValue" value="1"> -->
+                    <input type="hidden" name="voteValue" value="1">
                     <button type="submit" class="btn btn-primary glyphicon glyphicon-chevron-up"></button>
                 </form>
                 <h4> Vote</h4>
                 <form method="POST" action="{{ action('PostsController@vote') }}">
                     {!! csrf_field() !!}
                     <input type="hidden" name="postId" value="{{ $post->id }}">
-                    <!-- <input type="hidden" name="voteValue" value="0"> -->
+                    <input type="hidden" name="voteValue" value="0">
                 <button type="submit" class="btn btn-primary glyphicon glyphicon-chevron-down"></button>
                 </form>
         </div>
