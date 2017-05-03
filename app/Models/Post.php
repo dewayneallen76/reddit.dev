@@ -18,4 +18,18 @@ class Post extends BaseModel
 		return self::where('title', 'LIKE' , '%' . $searchTerm . '%')
 					->orWhere('content', 'LIKE', '%' . $searchTerm . '%');
 	}
+
+	public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+	public function upvotes()
+    {
+        return $this->votes()->where('vote', '=', 1);
+    }
+    public function downvotes()
+    {
+        return $this->votes()->where('vote', '=', 0);
+    }
 }

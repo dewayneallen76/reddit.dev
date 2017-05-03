@@ -141,18 +141,23 @@ class PostsController extends Controller
         $vote = Vote::firstOrCreate(
             array(
                     'user_id' => $request->user()->id,
-                    'post_id' => $request->get('postId'),
+                    'post_id' => $request->input('post_id'),
                 )
             );
 
-        if($request->get('voteValue') == 1){
-            $vote->vote = 1;
-        } else if($request->get('voteValue') == 0) {
-            $vote->vote = 0;
-        }
-
+        $vote->vote = $request->input('vote');
         $vote->save();
 
-        return redirect()->action('PostsController@index');
+        $post = $vote->post;
+
+        $post->upVotes = $post->upVotes();
+        $post->downVotes = $post->downVotes();
+
+        $data = [
+            'upVotes' => $post->upVotes,
+            'downVotes' => $post->downVotes,
+            'vote' => $vote->vote
+        ];
+        return back()->with($data);
     }
 }
